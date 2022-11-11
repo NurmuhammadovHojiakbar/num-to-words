@@ -45,7 +45,7 @@ const tw = [
   "to'qson",
 ];
 
-function toWords(s) {
+export default function toWords(s) {
   s = s.toString();
   s = s.replace(/[\, ]/g, "");
   if (s != parseFloat(s)) return "Raqam emas!";
@@ -78,6 +78,7 @@ function toWords(s) {
 
   if (x != s.length) {
     let y = s.length;
+    if (y > 31 + x) return "Juda katta son!";
     str += "butun ";
     for (let i = x + 1; i < y; i++) {
       if ((y - i) % 3 == 2) {
@@ -102,5 +103,3 @@ function toWords(s) {
   }
   return str.replace(/\s+/g, " ");
 }
-
-console.log(toWords(8.568));
